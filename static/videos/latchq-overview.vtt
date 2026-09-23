@@ -1,0 +1,33 @@
+WEBVTT
+
+00:00.000 --> 00:08.000
+Observed queries interact with blue FP16 key tiles
+while the keys remain in the hot cache.
+
+00:08.000 --> 00:17.500
+The same query produces different attention with
+FP16 keys and reconstructed 2-bit keys.
+
+00:17.500 --> 00:22.000
+QTrace estimates sensitivity to quantization.
+H_d accumulates original attention times squared query activations / d.
+
+00:22.000 --> 00:28.000
+Each observed query adds evidence to the green H_d tiles.
+The tiles summarize sensitivity for each key and channel.
+
+00:28.000 --> 00:35.200
+QClip uses the H_d weights, with a small positive floor,
+to score the key reconstruction error of 25 candidates.
+
+00:35.200 --> 00:40.000
+Select argmin J: the candidate with the lowest weighted error.
+The selected tile remains as the other candidates fade.
+
+00:40.000 --> 00:50.000
+The selected candidate sets the quantizer.
+Blue key tiles pass through Quantize once and become 2-bit codes.
+
+00:50.000 --> 01:00.000
+Store the selected key codes with FP16 scale and offset.
+Keep the baseline bit allocation, storage format, and cache schedule.
