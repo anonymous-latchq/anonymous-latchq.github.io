@@ -111,7 +111,7 @@ the website license does not relicense the research paper.
         <tr class="ours-row"><th scope="row">LatchQ</th><td>53.03</td><td>53.51</td><td>52.87</td><td>53.75</td></tr>
       </tbody></table></div><p class="chart-note">* At the 2.25 and 3.0 bpd targets, respectively, KVQuant uses 2.3 and 3.3 bpd; TurboQuant uses 3.0/2.75 and 4.0/3.75 K/V bpd. FP16 uses 16 bpd.</p></details>
       <div class="evidence-grid">
-        <article><div class="mini-label">Reasoning & code</div><h3>Reasoning and code generation</h3><p>On Llama-3.1-8B-Instruct at 2.25 bpd, LatchQ improves GSM8K accuracy from <strong>65.50 to 74.75</strong> over KIVI-2. LiveCodeBench v5 pass@1 reaches <strong>11.38</strong>, compared with <strong>11.53</strong> for FP16. <span class="source-ref">[Table 2]</span></p></article>
+        <article><div class="mini-label">Reasoning & code</div><h3>Reasoning and code generation</h3><p>On Llama-3.1-8B-Instruct at 2.25 bpd, LatchQ improves GSM8K accuracy from <strong>65.50 to 74.75</strong> over KIVI-2. LiveCodeBench pass@1 reaches <strong>11.38</strong>, compared with <strong>11.53</strong> for FP16. <span class="source-ref">[Table 2]</span></p></article>
         <article><div class="mini-label">Storage efficiency</div><h3>KV storage</h3><p>At 32,768 tokens with a 128-token FP16 hot cache, calculated KV storage is <strong>0.58 GB</strong> at 2.25 bpd, matching KIVI-2. This is <strong>14.4%</strong> of the FP16 reference. <span class="source-ref">[Table 5]</span></p></article>
       </div>
     </section>
