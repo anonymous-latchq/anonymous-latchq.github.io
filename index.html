@@ -100,14 +100,14 @@ the website license does not relicense the research paper.
       <div class="section-intro"><h2 id="results-heading">LongBench results</h2></div>
       <div class="results-toolbar"><div class="segmented" role="group" aria-label="Choose target storage rate"><button type="button" data-rate="2.25" aria-pressed="true">2.25 bpd</button><button type="button" data-rate="3.0" aria-pressed="false">3.0 bpd</button></div><span>LongBench macro-average <span aria-hidden="true">↑</span><span class="sr-only"> Higher is better</span></span></div>
       <div id="chart-region" class="chart-grid" aria-live="polite" aria-atomic="true"></div>
-      <noscript><p>Interactive charts require JavaScript. At 2.25 bpd, LatchQ scores 53.03 on Llama-3.1-8B-Instruct and 52.87 on Qwen2.5-7B-Instruct; at 3.0 bpd, the scores are 53.51 and 53.75. See Table 1 in the paper for all methods.</p></noscript>
+      <noscript><p>Interactive charts require JavaScript. At 2.25 bpd, LatchQ scores 53.03 on Llama-3.1-8B-Instruct and 52.88 on Qwen2.5-7B-Instruct; at 3.0 bpd, the scores are 53.51 and 53.75. See Table 1 in the paper for all methods.</p></noscript>
       <details class="results-table-details"><summary>View all reported LongBench averages</summary><div class="table-scroll"><table class="results-table"><caption>Table 1 — LongBench macro-average (higher is better)</caption><thead><tr><th scope="col">Method</th><th scope="col">Llama · 2.25</th><th scope="col">Llama · 3.0</th><th scope="col">Qwen · 2.25</th><th scope="col">Qwen · 3.0</th></tr></thead><tbody>
-        <tr><th scope="row">FP16</th><td>53.74</td><td>53.74</td><td>54.39</td><td>54.39</td></tr>
-        <tr><th scope="row">KIVI-2</th><td>52.23</td><td>53.00</td><td>52.07</td><td>53.34</td></tr>
-        <tr><th scope="row">KVQuant*</th><td>50.10</td><td>52.63</td><td>49.93</td><td>52.63</td></tr>
+        <tr><th scope="row">FP16</th><td>53.74</td><td>53.74</td><td>54.40</td><td>54.40</td></tr>
+        <tr><th scope="row">KIVI-2</th><td>52.23</td><td>53.00</td><td>52.08</td><td>53.34</td></tr>
+        <tr><th scope="row">KVQuant*</th><td>50.11</td><td>52.64</td><td>49.93</td><td>52.63</td></tr>
         <tr><th scope="row">SQuat</th><td>51.55</td><td>52.61</td><td>42.23</td><td>47.68</td></tr>
         <tr><th scope="row">TurboQuant*</th><td>49.03</td><td>52.23</td><td>41.69</td><td>52.03</td></tr>
-        <tr class="ours-row"><th scope="row">LatchQ</th><td>53.03</td><td>53.51</td><td>52.87</td><td>53.75</td></tr>
+        <tr class="ours-row"><th scope="row">LatchQ</th><td>53.03</td><td>53.51</td><td>52.88</td><td>53.75</td></tr>
       </tbody></table></div><p class="chart-note">* At the 2.25 and 3.0 bpd targets, respectively, KVQuant uses 2.3 and 3.3 bpd; TurboQuant uses 3.0/2.75 and 4.0/3.75 K/V bpd. FP16 uses 16 bpd.</p></details>
       <div class="evidence-grid">
         <article><div class="mini-label">Reasoning & code</div><h3>Reasoning and code generation</h3><p>On Llama-3.1-8B-Instruct at 2.25 bpd, LatchQ improves GSM8K accuracy from <strong>65.50 to 74.75</strong> over KIVI-2. LiveCodeBench pass@1 reaches <strong>11.38</strong>, compared with <strong>11.53</strong> for FP16. <span class="source-ref">[Table 2]</span></p></article>
