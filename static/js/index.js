@@ -47,9 +47,9 @@
   const rateButtons = document.querySelectorAll('[data-rate]');
   let activeRate = '2.25';
   function renderCharts() {
-    const minimum = activeRate === '2.25' ? 40 : 45;
+    const minimum = 35;
     const maximum = 55;
-    const ticks = activeRate === '2.25' ? [40, 42.5, 45, 47.5, 50, 52.5, 55] : [45, 47.5, 50, 52.5, 55];
+    const ticks = [35, 37.5, 40, 42.5, 45, 47.5, 50, 52.5, 55];
     const position = value => (value - minimum) / (maximum - minimum) * 100;
     chartRegion.replaceChildren(...models.map(model => {
       const panel = document.createElement('article');
