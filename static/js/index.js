@@ -40,8 +40,8 @@
   // Paper Table 1; fixed order is shared with the accessible HTML table.
   const methods = ['FP16', 'KIVI-2', 'KVQuant', 'SQuat', 'TurboQuant', 'LatchQ'];
   const models = [
-    { name: 'Llama-3.1-8B-Instruct', rates: { '2.25': [53.74, 52.23, 50.10, 51.55, 19.03, 53.03], '3.0': [53.74, 53.00, 52.63, 52.61, 52.23, 53.51] } },
-    { name: 'Qwen2.5-7B-Instruct', rates: { '2.25': [54.39, 52.07, 49.93, 42.23, 21.44, 52.87], '3.0': [54.39, 53.34, 52.63, 47.68, 52.03, 53.75] } }
+    { name: 'Llama-3.1-8B-Instruct', rates: { '2.25': [53.74, 52.23, 50.10, 51.55, 49.03, 53.03], '3.0': [53.74, 53.00, 52.63, 52.61, 52.23, 53.51] } },
+    { name: 'Qwen2.5-7B-Instruct', rates: { '2.25': [54.39, 52.07, 49.93, 42.23, 41.69, 52.87], '3.0': [54.39, 53.34, 52.63, 47.68, 52.03, 53.75] } }
   ];
   const chartRegion = document.getElementById('chart-region');
   const rateButtons = document.querySelectorAll('[data-rate]');
