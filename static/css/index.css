@@ -168,10 +168,6 @@ h2 { font-size: clamp(34px, 3.7vw, 46px); font-weight: 400; line-height: 1.18; l
 .bar-value { text-align: right; font-variant-numeric: tabular-nums; }
 .chart-axis { display: flex; justify-content: space-between; font-size: 10px; margin: 12px 56px 0 103px; color: #7b8880; }
 .chart-note { margin-top: 29px; color: var(--muted); font-size: 11px; line-height: 1.8; }
-.chart-view-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: -13px 0 35px; }
-.chart-views { display: flex; flex-wrap: wrap; gap: 20px; }
-.chart-views button { padding: 11px 0; min-height: 44px; border: 0; border-bottom: 2px solid transparent; color: var(--muted); background: transparent; font-size: 13px; }
-.chart-views button[aria-pressed=true] { color: var(--green); border-bottom-color: var(--green); }
 .chart-track.zoom-track { position: relative; background: transparent; border: 0; }
 .zoom-gridline { position: absolute; top: 0; bottom: 0; width: 1px; background: #e6ebe8; }
 .zoom-track .bar-fill { position: relative; z-index: 1; }
@@ -179,7 +175,6 @@ h2 { font-size: clamp(34px, 3.7vw, 46px); font-weight: 400; line-height: 1.18; l
 .zoom-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
 .zoom-axis span:first-child { transform: none; }
 .zoom-axis span:last-child { transform: translateX(-100%); }
-.dense-axis span:first-child, .dense-axis span:last-child { transform: translateX(-50%); }
 .results-table-details { margin-top: 17px; border-bottom: 1px solid var(--line); padding-bottom: 8px; font-size: 13px; }
 .table-scroll { overflow-x: auto; }
 .results-table { width: 100%; font-size: 12px; border-collapse: collapse; margin: 15px 0; }
@@ -228,7 +223,6 @@ h2 { font-size: clamp(34px, 3.7vw, 46px); font-weight: 400; line-height: 1.18; l
 }
 @media (max-width: 800px) {
   .method-explanations { grid-template-columns: 1fr; gap: 0; }
-  .chart-view-controls { align-items: flex-start; flex-direction: column; gap: 10px; }
   .section-wide { width: calc(100% - 48px); }
   .nav-wrap { padding-inline: 24px; }
   .nav-links { margin-left: 0; gap: 22px; }
@@ -324,9 +318,6 @@ h2 { font-size: clamp(34px, 3.7vw, 46px); font-weight: 400; line-height: 1.18; l
   .footnotes.article-section p { font-size: 10px; }
   .footer { padding: 29px 22px; }
   .footer-inner { gap: 16px; }
-}
-@media (max-width: 420px) {
-  .dense-axis .minor-tick { visibility: hidden; }
 }
 @media (max-width: 360px) {
   .paper-title { font-size: 22px; }

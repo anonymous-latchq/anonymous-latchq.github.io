@@ -45,15 +45,11 @@
   ];
   const chartRegion = document.getElementById('chart-region');
   const rateButtons = document.querySelectorAll('[data-rate]');
-  const viewButtons = document.querySelectorAll('[data-chart-view]');
   let activeRate = '2.25';
-  let activeView = 'all';
   function renderCharts() {
-    const focused = activeView === 'focus';
-    const minimum = focused ? 45 : activeRate === '2.25' ? 40 : 45;
+    const minimum = activeRate === '2.25' ? 40 : 45;
     const maximum = 55;
-    const ticks = focused ? [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
-      : activeRate === '2.25' ? [40, 42.5, 45, 47.5, 50, 52.5, 55] : [45, 47.5, 50, 52.5, 55];
+    const ticks = activeRate === '2.25' ? [40, 42.5, 45, 47.5, 50, 52.5, 55] : [45, 47.5, 50, 52.5, 55];
     const position = value => (value - minimum) / (maximum - minimum) * 100;
     chartRegion.replaceChildren(...models.map(model => {
       const panel = document.createElement('article');
@@ -62,10 +58,8 @@
       const subtitle = document.createElement('p'); subtitle.textContent = `Target: ${activeRate} bits per dimension · 8 tasks`;
       panel.append(title, subtitle);
       const values = model.rates[activeRate];
-      // Every method is visible by default. Zoom includes all methods in range,
-      // rather than choosing a fixed subset or clipping bars below the axis.
-      const visibleMethods = methods.map((_, i) => i).filter(i => !focused || values[i] >= minimum);
-      visibleMethods.forEach(i => {
+      // Keep every method visible at both bit rates.
+      methods.forEach((_, i) => {
         const value = values[i];
         const row = document.createElement('div'); row.className = 'chart-row'; row.dataset.method = methods[i];
         const label = document.createElement('span'); label.className = 'bar-label'; label.textContent = methods[i] + ([2, 4].includes(i) ? '*' : '');
@@ -82,10 +76,8 @@
       });
       const axis = document.createElement('div'); axis.className = 'chart-axis'; axis.setAttribute('aria-hidden', 'true');
       axis.classList.add('zoom-axis');
-      if (focused) axis.classList.add('dense-axis');
-      ticks.forEach((value, index) => {
+      ticks.forEach(value => {
         const tick = document.createElement('span'); tick.textContent = value;
-        if (focused && index % 2 === 1) tick.className = 'minor-tick';
         tick.style.left = `${position(value)}%`;
         axis.append(tick);
       });
@@ -96,11 +88,6 @@
   rateButtons.forEach(button => button.addEventListener('click', () => {
     rateButtons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
     activeRate = button.dataset.rate;
-    renderCharts();
-  }));
-  viewButtons.forEach(button => button.addEventListener('click', () => {
-    viewButtons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-    activeView = button.dataset.chartView;
     renderCharts();
   }));
   renderCharts();
