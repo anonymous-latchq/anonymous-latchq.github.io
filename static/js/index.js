@@ -50,10 +50,10 @@
   let activeView = 'all';
   function renderCharts() {
     const focused = activeView === 'focus';
-    const minimum = focused ? 51 : activeRate === '2.25' ? 15 : 45;
+    const minimum = focused ? 45 : activeRate === '2.25' ? 40 : 45;
     const maximum = 55;
-    const ticks = focused ? [51, 52, 53, 54, 55]
-      : activeRate === '2.25' ? [15, 25, 35, 45, 55] : [45, 47.5, 50, 52.5, 55];
+    const ticks = focused ? [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+      : activeRate === '2.25' ? [40, 42.5, 45, 47.5, 50, 52.5, 55] : [45, 47.5, 50, 52.5, 55];
     const position = value => (value - minimum) / (maximum - minimum) * 100;
     chartRegion.replaceChildren(...models.map(model => {
       const panel = document.createElement('article');
@@ -82,8 +82,10 @@
       });
       const axis = document.createElement('div'); axis.className = 'chart-axis'; axis.setAttribute('aria-hidden', 'true');
       axis.classList.add('zoom-axis');
-      ticks.forEach(value => {
+      if (focused) axis.classList.add('dense-axis');
+      ticks.forEach((value, index) => {
         const tick = document.createElement('span'); tick.textContent = value;
+        if (focused && index % 2 === 1) tick.className = 'minor-tick';
         tick.style.left = `${position(value)}%`;
         axis.append(tick);
       });

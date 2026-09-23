@@ -179,6 +179,7 @@ h2 { font-size: clamp(34px, 3.7vw, 46px); font-weight: 400; line-height: 1.18; l
 .zoom-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
 .zoom-axis span:first-child { transform: none; }
 .zoom-axis span:last-child { transform: translateX(-100%); }
+.dense-axis span:first-child, .dense-axis span:last-child { transform: translateX(-50%); }
 .results-table-details { margin-top: 17px; border-bottom: 1px solid var(--line); padding-bottom: 8px; font-size: 13px; }
 .table-scroll { overflow-x: auto; }
 .results-table { width: 100%; font-size: 12px; border-collapse: collapse; margin: 15px 0; }
@@ -323,6 +324,9 @@ h2 { font-size: clamp(34px, 3.7vw, 46px); font-weight: 400; line-height: 1.18; l
   .footnotes.article-section p { font-size: 10px; }
   .footer { padding: 29px 22px; }
   .footer-inner { gap: 16px; }
+}
+@media (max-width: 420px) {
+  .dense-axis .minor-tick { visibility: hidden; }
 }
 @media (max-width: 360px) {
   .paper-title { font-size: 22px; }
